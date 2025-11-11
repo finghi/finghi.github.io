@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简介 | Finghi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CBCB',
+                        accent: '#FF7D00',
+                        dark: '#1D2129',
+                        light: '#F7F8FA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #165DFF 0%, #36CBCB 100%);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0px); }
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark min-h-screen">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-xl font-bold text-primary flex items-center gap-2">
+                    <i class="fa fa-user-circle-o"></i>
+                    <span>Finghi</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#about" class="font-medium hover:text-primary transition-colors">关于我</a>
+                    <a href="#skills" class="font-medium hover:text-primary transition-colors">技能</a>
+                    <!-- <a href="#projects" class="font-medium hover:text-primary transition-colors">项目</a>
+                    <a href="#experience" class="font-medium hover:text-primary transition-colors">经历</a> -->
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden text-dark hover:text-primary transition-colors">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col gap-3">
+                <a href="#about" class="py-2 font-medium hover:text-primary transition-colors">关于我</a>
+                <a href="#skills" class="py-2 font-medium hover:text-primary transition-colors">技能</a>
+                <!-- <a href="#projects" class="py-2 font-medium hover:text-primary transition-colors">项目</a>
+                <a href="#experience" class="py-2 font-medium hover:text-primary transition-colors">经历</a>
+                <a href="#contact" class="py-2 font-medium hover:text-primary transition-colors">联系方式</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-primary text-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <!-- 头像 -->
+                <div class="relative animate-float">
+                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/30 shadow-lg">
+                        <img src="https://picsum.photos/seed/profile123/400/400" alt="Finghi的照片" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-3 -right-3 bg-accent text-white rounded-full p-3 shadow-lg">
+                        <i class="fa fa-code text-xl"></i>
+                    </div>
+                </div>
+                
+                <!-- 介绍文本 -->
+                <div class="text-center md:text-left">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight mb-4 text-shadow">
+                        Finghi
+                    </h1>
+                    <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-white/90 mb-6">
+                        前端开发工程师 
+                    </p>
+                    <p class="text-white/80 mb-8 max-w-lg">
+                        专注于创建美观、高效且用户友好的 web 应用，拥有 5 年前端开发经验，热爱技术创新和设计挑战。
+                    </p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <!-- <a href="#contact" class="px-6 py-3 bg-white text-primary font-medium rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                            联系我
+                        </a>
+                        <a href="#projects" class="px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg hover:bg-white/10 transition-all transform hover:-translate-y-1">
+                            查看项目
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 关于我 -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">关于我</h2>
+                    <div class="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        了解我的背景、兴趣和职业目标
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-12 items-center">
+                    <div class="relative">
+                        <img src="https://picsum.photos/seed/workspace/800/600" alt="我的工作环境" class="rounded-xl shadow-xl w-full h-auto">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
+                            <p class="text-primary font-semibold">持续学习</p>                           
+                        </div>
+                        <div class="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                            <p class="text-primary font-semibold">热爱分享</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能 -->
+        <section id="skills" class="py-20 bg-light">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">我的技能</h2>
+                    <div class="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        我精通的技术栈和专业能力
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 前端技能 -->
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all p-6 border border-gray-100">
+                        <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
+                            <i class="fa fa-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">前端开发</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">HTML/CSS</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">JavaScript</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">React</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">Vue</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">TypeScript</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>         
+                    
+                    <!-- 其他技能 -->
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all p-6 border border-gray-100">
+                        <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6 text-accent">
+                            <i class="fa fa-cogs text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">其他技能</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">Node.js</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">Git</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">Webpack</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">性能优化</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-gray-700">团队协作</span>
+                                <div class="w-2/3 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目 -->
+        <!-- <section id="projects" class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">我的项目</h2>
+                    <div class="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        我参与开发的一些代表性项目
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/project1/600/400" alt="电商平台" class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                                <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">响应式电商平台</h3>
+                            <p class="text-gray-600 mb-4">基于 React 和 TypeScript 开发的现代化电商平台，支持响应式设计和复杂的购物流程。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">React</span>
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">TypeScript</span>
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">Redux</span>
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/project2/600/400" alt="数据可视化平台" class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                                <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">数据可视化平台</h3>
+                            <p class="text-gray-600 mb-4">使用 Vue.js 和 ECharts 构建的企业级数据可视化平台，提供丰富的图表和交互式分析功能。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">Vue.js</span>
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">ECharts</span>
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">D3.js</span>
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">Element UI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/project3/600/400" alt="社交应用" class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                                <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">社交网络应用</h3>
+                            <p class="text-gray-600 mb-4">全栈 JavaScript 开发的社交网络应用，具有实时消息、用户关注和内容分享等功能。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">React</span>
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">Node.js</span>
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">Socket.io</span>
+                                <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                        查看更多项目 <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section> -->
+
+       
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <a href="#" class="text-2xl font-bold text-white flex items-center gap-2 justify-center md:justify-start">
+                        <i class="fa fa-user-circle-o"></i>
+                        <span>finghi</span>
+                    </a>
+                    <p class="text-gray-400 mt-2 max-w-md">
+                        专注于创建美观、高效且用户友好的 web 应用。
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex gap-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-wechat text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        © 2025 finghi. 保留所有权利。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="animate-float fixed bottom-6 right-6 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('py-4');
+                
+                // 显示返回顶部按钮
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2', 'shadow-md');
+                
+                // 隐藏返回顶部按钮
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 返回顶部功能
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 移动端菜单切换
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // 关闭移动端菜单
+                    mobileMenu.classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 表单提交处理
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // 这里可以添加表单验证和提交逻辑
+                alert('感谢您的留言！我会尽快回复您。');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
